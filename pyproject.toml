@@ -1,0 +1,26 @@
+[project]
+name = "ucdp-border-crossing-ml"
+version = "0.1.0"
+description = "Experimental Border Crossing Prediction using Machine Learning"
+readme = "README.md"
+requires-python = "==3.12.3"
+dependencies = [
+    "gradio>=6.3.0",
+    "ipykernel>=7.1.0",
+    "ipython==7.34.0",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.0",
+    "notebook>=7.5.2",
+    "numpy<2.3",
+    "pandas>=2.3.3",
+    "scikit-learn>=1.8.0",
+    "ydata-profiling>=4.18.1",
+]
+
+[[tool.uv.index]]
+name = "nvidia"
+url = "https://pypi.nvidia.com/"
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
