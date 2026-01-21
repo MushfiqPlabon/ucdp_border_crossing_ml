@@ -11,7 +11,7 @@ dependencies = [
     "jupyter>=1.1.1",
     "matplotlib>=3.10.0",
     "notebook>=7.5.2",
-    "numpy<2.3",
+    "numpy>=2.3",
     "pandas>=2.3.3",
     "scikit-learn>=1.8.0",
     "ydata-profiling>=4.18.1",
