@@ -9,4 +9,11 @@ wheels/
 # Virtual environments
 .venv
 
-GEMINI.md
+# IDE specific files
+.gradio/
+.ipynb_checkpoints/
+.vscode/
+.ruff_cache/
+
+# Large generated reports
+EDA-Report.html
