@@ -11,6 +11,32 @@ This repository implements a theoretical **Hybrid Early Warning System (HEWS)** 
 
 ## Methodology & Architecture
 
+```mermaid
+graph TD
+    subgraph Inputs
+        I[Input Data: Sector, Month, Year, Violence Type]
+    end
+
+    I --> P[Preprocessing Pipeline<br/>(StandardScaler + OneHotEncoder)]
+    
+    subgraph Hybrid_Tactical_Model [Hybrid Tactical Model]
+        direction TB
+        P -->|Processed Features| Ada[AdaBoost Classifier<br/>(Precision Signal)]
+        P -->|Processed Features| SVM[One-Class SVM<br/>(Sensitivity Signal)]
+    end
+    
+    Ada -->|Risk Probability| D{Decision Logic}
+    SVM -->|Is Anomaly?| D
+    
+    D -->|Prob ≥ 0.20| Red[🔴 RED ALERT<br/>High Probability Threat]
+    D -->|Anomaly Detected| Yellow[🟡 YELLOW ALERT<br/>Unusual Activity]
+    D -->|Routine Pattern| Green[🟢 GREEN<br/>Routine Internal Pattern]
+    
+    style Red fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style Yellow fill:#ffffcc,stroke:#e6e600,stroke-width:2px
+    style Green fill:#ccffcc,stroke:#00cc00,stroke-width:2px
+```
+
 ### 1. Data Pipeline
 *   **Source:** UCDP Georeferenced Event Dataset (GED).
 *   **Preprocessing:** Five-stage pipeline including automated keyword-based target engineering, temporal feature extraction (Monthly/Yearly), and spatial standardization.
