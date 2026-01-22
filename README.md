@@ -57,11 +57,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 *   **Inference:** The notebook includes a Gradio interface (Task 10) that accepts Sector, Month, and Violence Type inputs to generate a Tactical Intelligence Report.
 *   **Deployment:** The system is unified into a single `HybridTacticalModel` wrapper class, which can be exported via the included pickling logic for production integration.
 
-## Academic & Professional Standards
-This project adheres to rigorous software engineering and data science standards:
-*   **Extrapolation Safety:** Utilizes robust scaling and non-linear kernels to handle future temporal inputs.
-*   **Complexity Optimization:** Optimized upsampling logic ($O(N)$ complexity) for memory efficiency.
-*   **Type Safety:** Implementation includes Python 3.12 type hinting for critical path logic.
+## Disclaimer
+*   This project is a theoretical exercise and should not be used for real-world operational decision-making without further validation and ethical considerations.
 
 ---
 *Developed as a theoretical operational planning tool for border security and alertness planning.*
