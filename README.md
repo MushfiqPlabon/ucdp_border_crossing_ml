@@ -14,23 +14,23 @@ This repository implements a theoretical **Hybrid Early Warning System (HEWS)** 
 ```mermaid
 graph TD
     subgraph Inputs
-        I[Input Data: Sector, Month, Year, Violence Type]
+        I["Input Data: Sector, Month, Year, Violence Type"]
     end
 
-    I --> P[Preprocessing Pipeline<br/>(StandardScaler + OneHotEncoder)]
+    I --> P["Preprocessing Pipeline<br/>(StandardScaler + OneHotEncoder)"]
     
     subgraph Hybrid_Tactical_Model [Hybrid Tactical Model]
         direction TB
-        P -->|Processed Features| Ada[AdaBoost Classifier<br/>(Precision Signal)]
-        P -->|Processed Features| SVM[One-Class SVM<br/>(Sensitivity Signal)]
+        P -->|Processed Features| Ada["AdaBoost Classifier<br/>(Precision Signal)"]
+        P -->|Processed Features| SVM["One-Class SVM<br/>(Sensitivity Signal)"]
     end
     
     Ada -->|Risk Probability| D{Decision Logic}
     SVM -->|Is Anomaly?| D
     
-    D -->|Prob ≥ 0.20| Red[🔴 RED ALERT<br/>High Probability Threat]
-    D -->|Anomaly Detected| Yellow[🟡 YELLOW ALERT<br/>Unusual Activity]
-    D -->|Routine Pattern| Green[🟢 GREEN<br/>Routine Internal Pattern]
+    D -->|Prob ≥ 0.20| Red["🔴 RED ALERT<br/>High Probability Threat"]
+    D -->|Anomaly Detected| Yellow["🟡 YELLOW ALERT<br/>Unusual Activity"]
+    D -->|Routine Pattern| Green["🟢 GREEN<br/>Routine Internal Pattern"]
     
     style Red fill:#ffcccc,stroke:#cc0000,stroke-width:2px
     style Yellow fill:#ffffcc,stroke:#e6e600,stroke-width:2px
@@ -80,7 +80,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 ### Operational Use
 *   **Training:** Execute the `ucdp_border_crossing_ml.ipynb` notebook to perform the full training, tuning, and validation cycle.
-*   **Inference:** The notebook includes a Gradio interface (Task 10) that accepts Sector, Month, and Violence Type inputs to generate a Tactical Intelligence Report.
+*   **Inference:** The notebook includes a Gradio interface (at the bottom, commented out) that accepts Sector, Month, and Violence Type inputs to generate a Tactical Intelligence Report.
 *   **Deployment:** The system is unified into a single `HybridTacticalModel` wrapper class, which can be exported via the included pickling logic for production integration.
 
 ## Disclaimer
