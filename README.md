@@ -28,8 +28,8 @@ graph TD
     Ada -->|Risk Probability| D{Decision Logic}
     SVM -->|Is Anomaly?| D
     
-    D -->|Prob ≥ 0.20| Red["🔴 RED ALERT<br/>High Probability Threat"]
-    D -->|Anomaly Detected| Yellow["🟡 YELLOW ALERT<br/>Unusual Activity"]
+    D -->|Prob ≥ 0.50| Red["🔴 RED ALERT<br/>High Probability Threat"]
+    D -->|Anomaly OR Prob ≥ 0.25| Yellow["🟡 YELLOW ALERT<br/>Unusual Activity"]
     D -->|Routine Pattern| Green["🟢 GREEN<br/>Routine Internal Pattern"]
     
     style Red fill:#ffcccc,stroke:#cc0000,stroke-width:2px
@@ -49,8 +49,8 @@ The system discards the traditional "single-best-classifier" approach in favor o
 
 ### 3. Tactical Intelligence Reporting
 The system translates machine learning metrics into a three-tier tactical alert framework:
-*   **🔴 RED ALERT:** High correlation with historical border conflict patterns (Probability > 20%).
-*   **🟡 YELLOW ALERT:** Anomaly detected. The event is statistically distinct from internal peace patterns, necessitating human investigation despite low supervised probability.
+*   **🔴 RED ALERT:** High correlation with historical border conflict patterns (Probability > 50%).
+*   **🟡 YELLOW ALERT:** Anomaly detected OR Moderate Probability (> 25%). The event is statistically distinct from internal peace patterns or shows moderate risk signs, necessitating human investigation.
 *   **🟢 GREEN:** Statistical alignment with routine internal conflict patterns.
 
 ## Technical Stack

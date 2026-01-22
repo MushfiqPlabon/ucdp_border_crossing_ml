@@ -75,9 +75,9 @@ def hybrid_predict(year, sector, month, violence):
         anomaly = analysis["anomaly_detected"]
 
         # D. Unified Status Logic
-        if risk_prob >= 0.20:
+        if risk_prob >= 0.50:
             status = "🔴 RED ALERT: High Probability Border Threat"
-        elif anomaly:
+        elif anomaly or risk_prob >= 0.25:
             status = "🟡 YELLOW ALERT: Unusual Activity (Anomaly Detected)"
         else:
             status = "🟢 GREEN: Routine Internal Patterns"
@@ -127,6 +127,6 @@ ui = gr.Interface(
 if __name__ == "__main__":
     ui.launch(
         share=True,
-        debug=True,
         pwa=True
     )
+    
